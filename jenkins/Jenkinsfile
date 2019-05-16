@@ -26,5 +26,10 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
+        stage('Create docker image') { 
+            steps {
+                sh 'docker build -f Dockerfile -t twitterfeed:1 .' 
+            }
+        }
     }
 }
